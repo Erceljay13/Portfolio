@@ -65,7 +65,7 @@ function Projects() {
       id="projects"
       initial={{ opacity: 0, y: 80 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0, margin: "0px 0px -10% 0px" }}
       transition={{ duration: 0.8 }}
       className="scroll-mt-24 bg-slate-900 py-28 px-6"
     >
@@ -74,7 +74,7 @@ function Projects() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0, margin: "0px 0px -10% 0px" }}
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
@@ -98,7 +98,7 @@ function Projects() {
               key={project.title}
               initial={{ opacity: 0, y: 70 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0, margin: "0px 0px -10% 0px" }}
               transition={{
                 duration: 0.6,
                 delay: index * 0.2,

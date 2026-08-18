@@ -6,7 +6,7 @@ function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden bg-slate-950 px-6"
+      className="relative flex min-h-screen items-center overflow-hidden bg-slate-950 px-6 pt-28 pb-16 md:pt-6"
     >
       {/* Static Background Glow */}
       <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-cyan-500/20 blur-3xl"></div>
@@ -14,14 +14,46 @@ function Hero() {
       <div className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-blue-600/10 blur-3xl"></div>
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-16 md:grid-cols-2">
-        {/* LEFT */}
-        <div>
+        {/* PHOTO — first on mobile, right column on desktop */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative order-1 flex flex-col items-center md:order-2"
+        >
+          {/* Static Glow */}
+          <div className="absolute h-80 w-80 rounded-full bg-cyan-500/20 blur-3xl"></div>
+
+          <div className="relative">
+            <div className="overflow-hidden rounded-full border-4 border-cyan-400 shadow-2xl shadow-cyan-500/20">
+              <img
+                src={profile}
+                alt="Ercel Jay Antonis"
+                className="h-90 w-90 object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Tag chip overlapping the bottom of the photo */}
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="relative -mt-5 rounded-full border border-slate-700 bg-slate-900 px-4 py-1.5 text-sm font-medium text-slate-300 shadow-lg"
+          >
+            React & React Native
+          </motion.span>
+        </motion.div>
+
+        {/* TEXT — second on mobile, left column on desktop */}
+        <div className="order-2 flex flex-col items-center text-center md:order-1 md:items-start md:text-left">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-4 inline-block rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1 text-sm font-medium text-cyan-400"
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1 text-sm font-medium text-cyan-400"
           >
+            <span className="h-2 w-2 rounded-full bg-cyan-400"></span>
             Freelance · Remote Work
           </motion.span>
 
@@ -29,7 +61,7 @@ function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-6xl font-black leading-tight md:text-7xl"
+            className="text-5xl font-black leading-tight sm:text-6xl md:text-7xl"
           >
             Ercel Jay
             <br />
@@ -40,7 +72,7 @@ function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-6 text-2xl text-slate-300"
+            className="mt-6 text-xl text-slate-300 sm:text-2xl"
           >
             Frontend Developer • React Native Developer
           </motion.h2>
@@ -60,7 +92,7 @@ function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.1 }}
-            className="mt-10 flex gap-4"
+            className="mt-10 flex flex-wrap justify-center gap-4 md:justify-start"
           >
             <a
               href="#projects"
@@ -119,27 +151,6 @@ function Hero() {
             </a>
           </motion.div>
         </div>
-
-        {/* RIGHT */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="relative flex justify-center"
-        >
-          {/* Static Glow */}
-          <div className="absolute h-80 w-80 rounded-full bg-cyan-500/20 blur-3xl"></div>
-
-          <div className="relative">
-            <div className="overflow-hidden rounded-full border-4 border-cyan-400 shadow-2xl shadow-cyan-500/20">
-              <img
-                src={profile}
-                alt="Ercel Jay Antonis"
-                className="h-90 w-90 object-cover"
-              />
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
