@@ -1,29 +1,52 @@
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background: #020617;
-  color: white;
-  font-family: Inter, system-ui, sans-serif;
-}
-
+/* Global Settings */
 * {
   box-sizing: border-box;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #020617;
+  color: #f8fafc;
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Buttons */
 button {
   font: inherit;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Accessible Keyboard Navigation */
+:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 4px;
+}
+
+/* Better Text Selection */
+::selection {
+  background-color: #0891b2;
+  color: white;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
